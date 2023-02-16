@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">    
+    <title>GAME</title>
+</head>
+<body>
+    <!--<div id="intro" class="center" style="display: none;">
+        <h5>VOCÊ É RÁPIDO?</h5>
+        <button id="start"></button>
+    </div>-->
+
+    <div class="content">
+        <div class="countdown"></div>
+        <div class="challenge">
+            <h1 id="genNumb">?</h1>
+            <h1 id="countNumb">?</h1>
+            <button id="btnStart" onclick="Countdown()">START!</button>
+            <button id="btnPause" onclick="Pause()">PAUSE!</button>
+        </div>
+        <div class="result"></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

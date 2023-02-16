@@ -1,0 +1,5 @@
+{
+    "discord.removeLowerDetails": false,
+    "discord.removeTimestamp": true,
+    "discord.lowerDetailsEditing": ".:"
+}
