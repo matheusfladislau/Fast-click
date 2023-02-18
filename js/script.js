@@ -5,6 +5,7 @@ var winCounter = 0;
 var genNum;
 var numPlaying;
 var countNumb;
+var audioCountdown = new Audio('../sounds/countdown.mp3');
 
 function showTutorial(){
   document.body.style.background = "gray";
@@ -64,6 +65,7 @@ function Countdown(){
   var counterName = function(){
     $(".countdown").text(countDown);
     countDown--;
+    audioCountdown.play();
 
     if(countDown < 0) {
       clearInterval(x);
