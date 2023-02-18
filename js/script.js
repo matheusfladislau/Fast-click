@@ -5,7 +5,7 @@ var winCounter = 0;
 var genNum;
 var numPlaying;
 var countNumb;
-var audioCountdown = new Audio('../sounds/countdown.mp3');
+var audioCountdown = new Audio('./sounds/countdown.mp3');
 
 function showTutorial(){
   document.body.style.background = "gray";
