@@ -1,43 +1,103 @@
-$(".countdown").hide();
-$(".result").hide();
-$("#btnPause").hide();
+showStart();
+$(".tutorial").hide();
+
+var winCounter = 0;
+var genNum;
+var numPlaying;
+var countNumb;
+
+function showTutorial(){
+  document.body.style.background = "gray";
+  $(".tutorial").show();
+  $(".countdown").hide();
+}
+
+function closeTutorial(){
+  document.body.style.background = "white";
+  $(".tutorial").hide();
+  $(".countdown").show();
+}
+
+function clearMsg(){
+  $(".countdown").text("");
+  $(".result").text("");
+  $("#countNumb").text("?");
+}
+
+function showStart(){
+  $("#btnPause").hide();
+  $("#btnStart").show();
+}
+
+function showPause(){
+  $("#btnStart").hide();
+  $("#btnPause").show();
+}
+
+function resultMsg(result){
+  $("#btnStart").prop("disabled",false);
+  showStart();
+
+  if(result == 0){ 
+    winCounter = 0;
+    $(".winCounter").text("");
+    $(".result").text("You missed it!");
+    return;
+  }
+
+  winCounter++;
+  $(".result").text("You did it!");
+  $(".winCounter").text(`${winCounter}`);
+}
+
+function randomNum(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
 
 function Countdown(){
-  var genNum = Math.floor(Math.random() * 10);
+  clearMsg();
+  genNum = Math.floor(Math.random() * 10);
   $("#genNumb").text(genNum);
   $("#btnStart").prop("disabled",true);
-  $(".countdown").show();
 
   var countDown = 3;
   var counterName = function(){
-    if(countDown > 0) {
-      $(".countdown").text(countDown);
-      countDown--;
-    } else {
-      clearInterval(countDown);
+    $(".countdown").text(countDown);
+    countDown--;
+
+    if(countDown < 0) {
+      clearInterval(x);
       Start();
     }
   };
   var x = setInterval(counterName, 1000);
 }
 
-var countNumb;
-var d;
-
 function Start(){
-  $(".result").text("");
-  $(".countdown").text("NOW!");
-  $("#countNumb").text("");
+  clearMsg();
+  showPause();
+  $(".countdown").text("NOW");
 
-  $("#btnStart").hide();
-  $("#btnPause").show();
-  
-  countNumb = 20;
+  countNumb = randomNum(10,15);
+  $("#countNumb").text(countNumb);
 
-  x = setInterval(function() {
-    $("#countNumb").text(countNumb);
+  numPlaying = setInterval(function() {
     countNumb--;
-  }, 1000);
+    $("#countNumb").text(countNumb);
+    if(countNumb == (genNum - 5)){
+      clearInterval(numPlaying);
+      resultMsg(0);
+    }
+  }, 200);
+}
+
+function Pause(){
+  clearInterval(numPlaying); 
+  if(genNum != countNumb){
+    resultMsg(0);
+    return;
+  }
+  resultMsg(1);
 }
 
 /*document.getElementById("pause").style.display = "none";

@@ -1,9 +1,25 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
 .content{
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
   height: 100vh;
+}
+
+.tutorial{
+  place-self: center;
+  position: fixed;
+  z-index: 1;
+  text-align: center;
+  display: block;
+  padding: 10px;
+  width: 200px;
+  background-color: pink;
 }
 
 .result{
@@ -28,7 +44,6 @@
   background-color: pink;
   height: 200px;
   width: 200px;
-  padding: 10px 10px 10px 10px;
 }
 
 .challenge > h1{
@@ -38,6 +53,46 @@
 .challenge > button{
   margin: 0 auto;
   display: block;
+}
+
+.winCounter{
+  font-size: 30px;
+  position: fixed;
+  bottom: 10px;
+  place-self: center;
+}
+
+.highscore{
+  font-size: 20px;
+  position: fixed;
+  bottom: 10px;
+  place-self: center;
+}
+
+@media screen and (max-width: 300px), screen and (max-height: 500px) {
+  .countdown {
+    font-size: 40px;
+    height: 240px;
+    width: 400px;
+  }
+
+  .challenge{
+    height: 150px;
+    width: 150px;
+    font-size: 13px;
+  }
+
+  .result{
+    margin-top: 200px;
+  }
+
+  .winCounter{
+    left: 10px;
+  }
+
+  .tutorial > p{
+    font-size: 12px;
+  }
 }
 
 /*body{

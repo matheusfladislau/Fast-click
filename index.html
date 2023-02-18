@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">    
+    <link rel="stylesheet" href="css/style.css">    
     <title>GAME</title>
 </head>
 <body>
@@ -14,7 +14,19 @@
     </div>-->
 
     <div class="content">
-        <div class="countdown"></div>
+        <div class="tutorial">
+            <p>When starting, both numbers below will be generated, and the bottom one will decrease fast.</p>
+            <p>Your objective is to press the STOP button as soon as the bottom number becomes the same as the top number.</p>
+
+            <p>Top number generates between 1 - 10.</p>
+            <p>Bottom number generates between 10 - 15.</p>
+
+            <button id="btnCloseTutorial" onclick="closeTutorial()">I GOT IT!</button>
+        </div>
+
+        <div class="countdown">
+            <button id="btnShowTutorial" onclick="showTutorial()">TUTORIAL</button>
+        </div>
         <div class="challenge">
             <h1 id="genNumb">?</h1>
             <h1 id="countNumb">?</h1>
@@ -22,6 +34,8 @@
             <button id="btnPause" onclick="Pause()">PAUSE!</button>
         </div>
         <div class="result"></div>
+        <div class="winCounter"></div>
+        <div class="highscore"></div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
